@@ -1,6 +1,8 @@
-package com.vincent.givetakeadmin.data.repository.reward
+package com.vincent.givetakeadmin.data.repository.advice
 
 import com.google.gson.Gson
+import com.vincent.givetakeadmin.data.repository.reward.RewardRepository
+import com.vincent.givetakeadmin.data.source.api.AdviceService
 import com.vincent.givetakeadmin.data.source.api.RewardService
 import com.vincent.givetakeadmin.data.source.response.reward.AllRewardsResponse
 import com.vincent.givetakeadmin.utils.Result
@@ -9,32 +11,29 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
-class RewardRepository(private val apiService: RewardService) {
+class AdviceRepository(private val apiService: AdviceService) {
 
-    fun getRewards() = flow {
+    fun getAllAdvices() = flow {
         emit(Result.Loading)
-        val response = apiService.getAllRewards()
-        if (response.isSuccessful){
+        val response = apiService.getAllAdvices()
+        if (response.isSuccessful) {
             emit(Result.Success(response.body()))
-        }else {
+        } else {
             val errorResponse = Gson().fromJson(response.errorBody()!!.string(), AllRewardsResponse::class.java)
             emit(Result.Error(errorResponse.message))
         }
-    }.catch {
-        emit(Result.Error("Server timeout. Silahkan dicoba kembali beberapa saat lagi"))
+    }.catch { emit(Result.Error("Server timeout. Silahkan dicoba kembali beberapa saat lagi"))
     }.flowOn(Dispatchers.IO)
-
-
 
     companion object {
         @Volatile
-        private var instance: RewardRepository? = null
+        private var instance: AdviceRepository? = null
 
         fun getInstance(
-            apiService: RewardService
-        ) : RewardRepository {
+            apiService: AdviceService
+        ) : AdviceRepository {
             return instance ?: synchronized(this) {
-                RewardRepository(apiService).also {
+                AdviceRepository(apiService).also {
                     instance = it
                 }
             }

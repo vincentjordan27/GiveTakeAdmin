@@ -1,6 +1,7 @@
 package com.vincent.givetakeadmin.data.source
 
 import com.vincent.givetakeadmin.BuildConfig
+import com.vincent.givetakeadmin.data.source.api.AdviceService
 import com.vincent.givetakeadmin.data.source.api.RewardService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -28,5 +29,25 @@ object ApiClient {
             .build()
 
         return retrofit.create(RewardService::class.java)
+    }
+
+    fun getAdviceService(): AdviceService {
+        val loggingInterceptor = if (BuildConfig.DEBUG) {
+            HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+        } else {
+            HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE)
+        }
+
+        val client = OkHttpClient.Builder()
+            .addInterceptor(loggingInterceptor)
+            .build()
+
+        val retrofit = Retrofit.Builder()
+            .baseUrl(url)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(client)
+            .build()
+
+        return retrofit.create(AdviceService::class.java)
     }
 }
