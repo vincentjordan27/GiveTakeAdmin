@@ -69,6 +69,11 @@ class AdviceFragment : Fragment() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.getAllAdvice()
+    }
+
     private fun showLoading(isLoading: Boolean) {
         if (isLoading) {
             binding.pg.visibility = View.VISIBLE

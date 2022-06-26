@@ -10,7 +10,7 @@ import com.vincent.givetakeadmin.R
 import com.vincent.givetakeadmin.data.source.response.reward.RewardItem
 import com.vincent.givetakeadmin.databinding.ItemRewardLayoutBinding
 
-class RewardAdapter: RecyclerView.Adapter<RewardAdapter.ViewHolder>() {
+class HomeAdapter: RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
 
     private var oldItemList = emptyList<RewardItem>()
 

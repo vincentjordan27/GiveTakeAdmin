@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.vincent.givetakeadmin.preference.UserPreferences
 import com.vincent.givetakeadmin.ui.activity.splash.SplashViewModel
+import com.vincent.givetakeadmin.ui.fragment.profile.ProfileViewModel
 
 class PrefViewModelFactory(private val pref: UserPreferences) : ViewModelProvider.NewInstanceFactory() {
 
@@ -11,6 +12,8 @@ class PrefViewModelFactory(private val pref: UserPreferences) : ViewModelProvide
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(SplashViewModel::class.java)) {
             return SplashViewModel(pref) as T
+        } else if (modelClass.isAssignableFrom(ProfileViewModel::class.java)) {
+            return ProfileViewModel(pref) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
     }
