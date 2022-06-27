@@ -1,6 +1,8 @@
 package com.vincent.givetakeadmin.data.source.response.advice
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 data class AllAdviceResponse(
     val status: String,
@@ -8,6 +10,7 @@ data class AllAdviceResponse(
     val data: List<AdviceItem>
 )
 
+@Parcelize
 data class AdviceItem(
     val id: String,
     val title: String,
@@ -17,4 +20,4 @@ data class AdviceItem(
     val name: String,
     @field:SerializedName("addDate")
     val date: String
-)
+) : Parcelable

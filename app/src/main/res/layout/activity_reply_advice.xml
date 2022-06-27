@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.reward.add.AddRewardActivity">
+    tools:context=".ui.activity.advice.reply.ReplyAdviceActivity">
 
     <ImageView
         android:id="@+id/btn_back"
@@ -18,124 +18,58 @@
         app:tint="@color/black" />
 
     <TextView
-        android:id="@+id/tv_title"
+        android:id="@+id/tv_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/play_regular"
-        android:text="Ubah Hadiah"
+        android:text="Saran dan Keluhan"
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/btn_back"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_title"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/tv_header">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/img"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_add_image"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <TextView
-                android:id="@+id/txt_name"
-                android:layout_width="wrap_content"
+                android:id="@+id/txt_title"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="28dp"
                 android:fontFamily="@font/mont_regular"
-                android:text="Nama Hadiah"
+                tools:text="Nama"
                 android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/img" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edt_name"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="11dp"
-                android:background="@drawable/edt_border"
-                android:hint="Nama Hadiah"
-                android:paddingHorizontal="8dp"
-                android:paddingVertical="4dp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/mont_regular"
-                android:textSize="12sp"
-                android:maxLines="1"
-                android:inputType="text"
-                android:imeOptions="actionNext"
-                android:textCursorDrawable="@null"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_name" />
-
-            <TextView
-                android:id="@+id/txt_point"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/mont_regular"
-                android:text="Poin"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edt_name" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edt_point"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="11dp"
-                android:background="@drawable/edt_border"
-                android:hint="Poin"
-                android:paddingHorizontal="8dp"
-                android:paddingVertical="4dp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/mont_regular"
-                android:textSize="12sp"
-                android:maxLines="1"
-                android:inputType="number"
-                android:imeOptions="actionNext"
-                android:textCursorDrawable="@null"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_point" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
             <TextView
                 android:id="@+id/txt_desc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="24dp"
                 android:fontFamily="@font/mont_regular"
-                android:text="Deskripsi Hadiah"
+                android:text="Deskripsi"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edt_point" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_title" />
 
-            <com.google.android.material.textfield.TextInputEditText
+            <TextView
                 android:id="@+id/edt_desc"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -145,52 +79,81 @@
                 android:background="@drawable/edt_border"
                 android:fontFamily="@font/mont_regular"
                 android:gravity="top"
-                android:hint="Deskripsi Hadiah"
                 android:paddingHorizontal="8dp"
                 android:paddingVertical="4dp"
                 android:textColor="@color/black"
-                android:textCursorDrawable="@null"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txt_desc" />
 
             <TextView
-                android:id="@+id/txt_stock"
+                android:id="@+id/txt_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/mont_regular"
-                android:text="Stok"
+                android:text="Jenis"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edt_desc" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edt_stock"
+            <TextView
+                android:id="@+id/edt_type"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="11dp"
                 android:background="@drawable/edt_border"
-                android:hint="Stok"
                 android:paddingHorizontal="8dp"
                 android:paddingVertical="4dp"
                 android:textColor="@color/black"
                 android:fontFamily="@font/mont_regular"
                 android:textSize="12sp"
                 android:maxLines="1"
-                android:inputType="number"
-                android:imeOptions="actionDone"
-                android:textCursorDrawable="@null"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_stock" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_type" />
+
+            <TextView
+                android:id="@+id/txt_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/mont_regular"
+                android:text="Pesan"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_type" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_message"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:minHeight="100dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="11dp"
+                android:background="@drawable/edt_border"
+                android:fontFamily="@font/mont_regular"
+                android:gravity="top"
+                android:hint="Pesan Balasan"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp"
+                android:textColor="@color/black"
+                android:textCursorDrawable="@null"
+                android:textSize="12sp"
+                android:inputType="text"
+                android:imeOptions="actionDone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_msg" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_save"
+                android:id="@+id/btn_send"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="58dp"
@@ -200,7 +163,7 @@
                 android:letterSpacing="0"
                 android:paddingHorizontal="48dp"
                 android:paddingVertical="12dp"
-                android:text="Simpan"
+                android:text="Kirim"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 android:visibility="visible"
@@ -208,10 +171,9 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edt_stock"
+                app:layout_constraintTop_toBottomOf="@+id/edt_message"
                 app:strokeColor="@color/black"
                 app:strokeWidth="2dp" />
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -237,6 +199,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

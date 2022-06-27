@@ -1,12 +1,14 @@
 package com.vincent.givetakeadmin.ui.fragment.advice
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.vincent.givetakeadmin.data.source.response.advice.AdviceItem
 import com.vincent.givetakeadmin.databinding.ItemAdviceLayoutBinding
+import com.vincent.givetakeadmin.ui.activity.advice.detail.DetailAdviceActivity
+import com.vincent.givetakeadmin.utils.Constant
 
 class AdviceListAdapter : RecyclerView.Adapter<AdviceListAdapter.ViewHolder>() {
 
@@ -27,7 +29,9 @@ class AdviceListAdapter : RecyclerView.Adapter<AdviceListAdapter.ViewHolder>() {
             binding.tvDate.text = oldItemList[position].date
             binding.tvType.text = oldItemList[position].category
             itemView.setOnClickListener {
-                Toast.makeText(itemView.context, oldItemList[position].name, Toast.LENGTH_SHORT).show()
+                val intent = Intent(itemView.context, DetailAdviceActivity::class.java)
+                intent.putExtra(Constant.DETAIL_ADVICE_ITEM, oldItemList[position])
+                itemView.context.startActivity(intent)
             }
         }
     }
