@@ -1,5 +1,6 @@
 package com.vincent.givetakeadmin.ui.fragment.home
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -9,6 +10,8 @@ import com.bumptech.glide.Glide
 import com.vincent.givetakeadmin.R
 import com.vincent.givetakeadmin.data.source.response.reward.RewardItem
 import com.vincent.givetakeadmin.databinding.ItemRewardLayoutBinding
+import com.vincent.givetakeadmin.ui.activity.reward.detail.DetailRewardActivity
+import com.vincent.givetakeadmin.utils.Constant
 
 class HomeAdapter: RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
 
@@ -29,7 +32,9 @@ class HomeAdapter: RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
             binding.txtPrice.text = oldItemList[position].price.toString() + " Pts"
             binding.txtAvailable.text = if (oldItemList[position].stock <= 0) "Stok Habis" else "Stok Tersedia"
             itemView.setOnClickListener {
-                Toast.makeText(itemView.context, oldItemList[position].name, Toast.LENGTH_SHORT ).show()
+                val intent = Intent(itemView.context, DetailRewardActivity::class.java)
+                intent.putExtra(Constant.DETAIL_REWARD_ID, oldItemList[position].id)
+                itemView.context.startActivity(intent)
             }
         }
     }

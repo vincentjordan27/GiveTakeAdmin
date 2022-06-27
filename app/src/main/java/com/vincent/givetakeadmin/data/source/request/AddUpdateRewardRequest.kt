@@ -1,6 +1,6 @@
 package com.vincent.givetakeadmin.data.source.request
 
-data class AddRewardRequest(
+data class AddUpdateRewardRequest(
     val name: String,
     val photo: String,
     val desc: String,

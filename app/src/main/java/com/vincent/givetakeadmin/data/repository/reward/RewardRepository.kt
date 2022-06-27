@@ -2,10 +2,11 @@ package com.vincent.givetakeadmin.data.repository.reward
 
 import com.google.gson.Gson
 import com.vincent.givetakeadmin.data.source.api.RewardService
-import com.vincent.givetakeadmin.data.source.request.AddRewardRequest
+import com.vincent.givetakeadmin.data.source.request.AddUpdateRewardRequest
 import com.vincent.givetakeadmin.data.source.response.StatusResponse
 import com.vincent.givetakeadmin.data.source.response.request.AllRewardsRequestResponse
 import com.vincent.givetakeadmin.data.source.response.reward.AllRewardsResponse
+import com.vincent.givetakeadmin.data.source.response.reward.RewardDetailResponse
 import com.vincent.givetakeadmin.data.source.response.reward.UploadImageRewardResponse
 import com.vincent.givetakeadmin.utils.Result
 import kotlinx.coroutines.Dispatchers
@@ -32,6 +33,18 @@ class RewardRepository(private val apiService: RewardService) {
         emit(Result.Error("Server timeout. Silahkan dicoba kembali beberapa saat lagi"))
     }.flowOn(Dispatchers.IO)
 
+    fun getRewardDetail(id: String)  = flow {
+        emit(Result.Loading)
+        val response = apiService.getRewardById(id)
+        if (response.isSuccessful) {
+            emit(Result.Success(response.body()))
+        } else {
+            val errorResponse = Gson().fromJson(response.errorBody()!!.string(), RewardDetailResponse::class.java)
+            emit(Result.Error(errorResponse.message))
+        }
+    }.catch {
+        emit(Result.Error("Server timeout. Silahkan dicoba kembali beberapa saat lagi"))
+    }.flowOn(Dispatchers.IO)
 
     fun getRewardsRequest() = flow {
         emit(Result.Loading)
@@ -46,9 +59,22 @@ class RewardRepository(private val apiService: RewardService) {
         emit(Result.Error("Server timeout. Silahkan dicoba kembali beberapa saat lagi"))
     }.flowOn(Dispatchers.IO)
 
-    fun addReward(body: AddRewardRequest) = flow {
+    fun addReward(body: AddUpdateRewardRequest) = flow {
         emit(Result.Loading)
         val response = apiService.addReward(body)
+        if (response.isSuccessful) {
+            emit(Result.Success(response.body()))
+        } else {
+            val errorResponse = Gson().fromJson(response.errorBody()!!.string(), StatusResponse::class.java)
+            emit(Result.Error(errorResponse.message))
+        }
+    }.catch {
+        emit(Result.Error("Server timeout. Silahkan dicoba kembali beberapa saat lagi"))
+    }.flowOn(Dispatchers.IO)
+
+    fun updateReward(id: String, body: AddUpdateRewardRequest) = flow {
+        emit(Result.Loading)
+        val response = apiService.updateReward(id, body)
         if (response.isSuccessful) {
             emit(Result.Success(response.body()))
         } else {
@@ -74,6 +100,18 @@ class RewardRepository(private val apiService: RewardService) {
         emit(Result.Error("Server timeout. Silahkan dicoba kembali beberapa saat lagi"))
     }.flowOn(Dispatchers.IO)
 
+    fun deleteReward(id: String) = flow {
+        emit(Result.Loading)
+        val response = apiService.deleteReward(id)
+        if (response.isSuccessful) {
+            emit(Result.Success(response.body()))
+        } else {
+            val errorResponse = Gson().fromJson(response.errorBody()!!.string(), UploadImageRewardResponse::class.java)
+            emit(Result.Error(errorResponse.message))
+        }
+    }.catch {
+        emit(Result.Error("Server timeout. Silahkan dicoba kembali beberapa saat lagi"))
+    }.flowOn(Dispatchers.IO)
 
     companion object {
         @Volatile
