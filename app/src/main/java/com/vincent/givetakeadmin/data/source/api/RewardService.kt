@@ -40,6 +40,11 @@ interface RewardService {
         @Part data : MultipartBody.Part
     ) : Response<UploadImageRewardResponse>
 
+    @POST("finishreward/{id}")
+    suspend fun finishRequestReward(
+        @Path("id") id: String
+    ): Response<StatusResponse>
+
     @DELETE("reward/{id}")
     suspend fun deleteReward(
         @Path("id") id: String,

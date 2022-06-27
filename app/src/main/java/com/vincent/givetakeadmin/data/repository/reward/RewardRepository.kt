@@ -106,7 +106,20 @@ class RewardRepository(private val apiService: RewardService) {
         if (response.isSuccessful) {
             emit(Result.Success(response.body()))
         } else {
-            val errorResponse = Gson().fromJson(response.errorBody()!!.string(), UploadImageRewardResponse::class.java)
+            val errorResponse = Gson().fromJson(response.errorBody()!!.string(), StatusResponse::class.java)
+            emit(Result.Error(errorResponse.message))
+        }
+    }.catch {
+        emit(Result.Error("Server timeout. Silahkan dicoba kembali beberapa saat lagi"))
+    }.flowOn(Dispatchers.IO)
+
+    fun finishRewardRequest(id: String) = flow {
+        emit(Result.Loading)
+        val response = apiService.finishRequestReward(id)
+        if (response.isSuccessful) {
+            emit(Result.Success(response.body()))
+        } else {
+            val errorResponse = Gson().fromJson(response.errorBody()!!.string(), StatusResponse::class.java)
             emit(Result.Error(errorResponse.message))
         }
     }.catch {

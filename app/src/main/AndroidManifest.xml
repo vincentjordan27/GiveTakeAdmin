@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GiveTakeAdmin">
         <activity
+            android:name=".ui.activity.request.RewardRequestDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activity.reward.edit.EditRewardActivity"
             android:exported="false" />
         <activity

@@ -54,7 +54,7 @@
         android:id="@+id/txt_no_data"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Tidak ada saran dan keluhan dari pengguna"
+        android:text="Tidak ada permintaan penukaran hadiah"
         android:fontFamily="@font/mont_regular"
         android:gravity="center"
         android:textSize="16sp"

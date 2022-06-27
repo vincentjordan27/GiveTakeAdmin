@@ -1,5 +1,6 @@
 package com.vincent.givetakeadmin.ui.fragment.reward
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -9,8 +10,10 @@ import com.vincent.givetakeadmin.data.source.response.advice.AdviceItem
 import com.vincent.givetakeadmin.data.source.response.request.RewardRequest
 import com.vincent.givetakeadmin.databinding.ItemAdviceLayoutBinding
 import com.vincent.givetakeadmin.databinding.ItemRequestRewardLayoutBinding
+import com.vincent.givetakeadmin.ui.activity.request.RewardRequestDetailActivity
 import com.vincent.givetakeadmin.ui.fragment.advice.AdviceListAdapter
 import com.vincent.givetakeadmin.ui.fragment.advice.AdvicesDiffCallback
+import com.vincent.givetakeadmin.utils.Constant
 
 class RewardRequestListAdapter : RecyclerView.Adapter<RewardRequestListAdapter.ViewHolder>() {
 
@@ -25,13 +28,15 @@ class RewardRequestListAdapter : RecyclerView.Adapter<RewardRequestListAdapter.V
         return ViewHolder(ItemRequestRewardLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
-    override fun onBindViewHolder(holder: RewardRequestListAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder) {
             binding.tvName.text = oldItemList[position].rewardName
             binding.tvDate.text = oldItemList[position].date
             binding.tvUser.text = oldItemList[position].name
             itemView.setOnClickListener {
-                Toast.makeText(itemView.context, oldItemList[position].name, Toast.LENGTH_SHORT).show()
+                val intent = Intent(itemView.context, RewardRequestDetailActivity::class.java)
+                intent.putExtra(Constant.REQUEST_REWARD_ITEM, oldItemList[position])
+                itemView.context.startActivity(intent)
             }
         }
     }
