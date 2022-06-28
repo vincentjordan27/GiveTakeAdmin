@@ -8,5 +8,6 @@ object Constant {
     const val ADVICE_TYPE_SARAN = "Saran"
     const val ADVICE_TYPE_KELUHAN = "Keluhan"
     const val REPLY_ADVICE_ITEM = "reply_advice_item"
+    const val ADMIN_EMAIL = "admin_email"
 
 }

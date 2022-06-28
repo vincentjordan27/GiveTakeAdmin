@@ -10,17 +10,17 @@ import kotlinx.coroutines.flow.map
 
 class UserPreferences private constructor(private val dataStore: DataStore<Preferences>){
 
-    private val ACCESS_KEY = stringPreferencesKey("access_key")
+    private val IS_LOGIN = booleanPreferencesKey("is_login")
 
-    fun getUserAccessKey() : Flow<String> {
+    fun isUserLogged() : Flow<Boolean> {
         return dataStore.data.map { preferences ->
-            preferences[ACCESS_KEY] ?: ""
+            preferences[IS_LOGIN] ?: false
         }
     }
 
-    suspend fun saveUserAccessKey(key: String) {
+    suspend fun saveUserStatus(key: Boolean) {
         dataStore.edit { preferences ->
-            preferences[ACCESS_KEY] = key
+            preferences[IS_LOGIN] = key
         }
     }
 

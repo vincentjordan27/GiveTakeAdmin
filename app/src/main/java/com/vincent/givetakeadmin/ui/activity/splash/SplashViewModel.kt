@@ -6,7 +6,7 @@ import androidx.lifecycle.asLiveData
 import com.vincent.givetakeadmin.preference.UserPreferences
 
 class SplashViewModel(private val preferences: UserPreferences) : ViewModel() {
-    fun getUserAccessKey() : LiveData<String> {
-        return preferences.getUserAccessKey().asLiveData()
+    fun isUserLogged() : LiveData<Boolean> {
+        return preferences.isUserLogged().asLiveData()
     }
 }

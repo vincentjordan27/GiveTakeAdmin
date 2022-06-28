@@ -35,15 +35,17 @@ class SplashActivity : AppCompatActivity() {
         val factory = PrefViewModelFactory.getInstance(pref)
         val viewModel = ViewModelProvider(this, factory)[SplashViewModel::class.java]
 
-        viewModel.getUserAccessKey().observe(this) {
+        viewModel.isUserLogged().observe(this) {
             scope.launch {
-                delay(3000)
-                if (it == "") {
-                    startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
-                    finish()
-                } else {
-                    startActivity(Intent(this@SplashActivity, MainActivity::class.java))
-                    finish()
+                if (it != null) {
+                    delay(3000)
+                    if (!it) {
+                        startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
+                        finish()
+                    } else {
+                        startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                        finish()
+                    }
                 }
             }
         }

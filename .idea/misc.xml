@@ -6,6 +6,7 @@
         <entry key="..\:/Project/TA/GiveTakeAdmin/app/src/main/res/drawable-v24/ic_add.xml" value="0.1" />
         <entry key="..\:/Project/TA/GiveTakeAdmin/app/src/main/res/drawable-v24/ic_back.xml" value="0.1" />
         <entry key="..\:/Project/TA/GiveTakeAdmin/app/src/main/res/drawable/edt_border.xml" value="0.1" />
+        <entry key="..\:/Project/TA/GiveTakeAdmin/app/src/main/res/drawable/edt_otp_border.xml" value="0.1" />
         <entry key="..\:/Project/TA/GiveTakeAdmin/app/src/main/res/drawable/ic_add.xml" value="0.1" />
         <entry key="..\:/Project/TA/GiveTakeAdmin/app/src/main/res/drawable/ic_add_image.xml" value="0.1" />
         <entry key="..\:/Project/TA/GiveTakeAdmin/app/src/main/res/drawable/ic_load.xml" value="0.1" />
@@ -13,11 +14,15 @@
         <entry key="..\:/Project/TA/GiveTakeAdmin/app/src/main/res/drawable/ic_profile.xml" value="0.1" />
         <entry key="..\:/Project/TA/GiveTakeAdmin/app/src/main/res/drawable/ic_reward.xml" value="0.1" />
         <entry key="..\:/Project/TA/GiveTakeAdmin/app/src/main/res/drawable/progress_bg.xml" value="0.1" />
-        <entry key="..\:/Project/TA/GiveTakeAdmin/app/src/main/res/layout/activity_add_reward.xml" value="0.22" />
+        <entry key="..\:/Project/TA/GiveTakeAdmin/app/src/main/res/layout/activity_add_reward.xml" value="0.33" />
+        <entry key="..\:/Project/TA/GiveTakeAdmin/app/src/main/res/layout/activity_detail_advice.xml" value="0.25" />
         <entry key="..\:/Project/TA/GiveTakeAdmin/app/src/main/res/layout/activity_detail_reward.xml" value="0.25" />
         <entry key="..\:/Project/TA/GiveTakeAdmin/app/src/main/res/layout/activity_edit_reward.xml" value="0.21510416666666668" />
         <entry key="..\:/Project/TA/GiveTakeAdmin/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Project/TA/GiveTakeAdmin/app/src/main/res/layout/activity_main.xml" value="0.24635416666666668" />
+        <entry key="..\:/Project/TA/GiveTakeAdmin/app/src/main/res/layout/activity_otp_admin.xml" value="0.2203125" />
+        <entry key="..\:/Project/TA/GiveTakeAdmin/app/src/main/res/layout/activity_reply_advice.xml" value="0.22" />
+        <entry key="..\:/Project/TA/GiveTakeAdmin/app/src/main/res/layout/activity_reward_request_detail.xml" value="0.3625" />
         <entry key="..\:/Project/TA/GiveTakeAdmin/app/src/main/res/layout/activity_splash.xml" value="0.152" />
         <entry key="..\:/Project/TA/GiveTakeAdmin/app/src/main/res/layout/fragment_advice.xml" value="0.25" />
         <entry key="..\:/Project/TA/GiveTakeAdmin/app/src/main/res/layout/fragment_home.xml" value="0.136" />
